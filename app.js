@@ -119,7 +119,23 @@ const conciergeCopy = {
   insurance: 'The office can help verify your plan. Enter only the <strong>insurance carrier name</strong> in the visit request, or call <a href="tel:+17183930100">718-393-0100</a>.',
   hours: '<strong>Monday–Friday:</strong> 9:30 AM–6:30 PM<br><strong>Saturday:</strong> 9:30 AM–3:30 PM<br><strong>Sunday:</strong> Closed',
   location: 'We’re at <strong>86-01 Justice Ave, Elmhurst, NY 11373</strong>. <a href="https://www.google.com/maps/dir/?api=1&destination=8601+Justice+Ave+Elmhurst+NY+11373" target="_blank" rel="noopener">Open directions ↗</a>',
-  human: 'Call the office at <a href="tel:+17183930100">718-393-0100</a> or email <a href="mailto:newtownsmiledental@gmail.com">newtownsmiledental@gmail.com</a>. For urgent scheduling, calling is best.'
+  human: `
+    <div class="concierge-contact-card">
+      <div class="concierge-qr-block">
+        <img src="/assets/phone-call-qr.svg" alt="QR code to call Newtown Smile Dental">
+        <span>SCAN TO CALL</span>
+      </div>
+      <div class="concierge-contact-copy">
+        <small>SPEAK WITH THE OFFICE</small>
+        <strong>718.393.0100</strong>
+        <p>Scan the QR code with your phone to start the call, or tap the button below.</p>
+        <div class="concierge-contact-actions">
+          <a class="concierge-call-btn" href="tel:+17183930100">Call now <span>↗</span></a>
+          <a class="concierge-mail-link" href="mailto:newtownsmiledental@gmail.com">newtownsmiledental@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  `
 };
 
 document.querySelectorAll('[data-concierge]').forEach(button => {

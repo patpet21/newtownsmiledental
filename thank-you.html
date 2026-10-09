@@ -5,28 +5,39 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Request Received | Newtown Smile Dental</title>
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#11110f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
-  <main style="min-height:100vh;display:grid;place-items:center;background:#f3f8fa;padding:24px">
-    <section style="width:min(680px,100%);background:#fff;border:1px solid #dce7ec;border-radius:28px;padding:46px;box-shadow:0 22px 60px rgba(15,55,77,.14);text-align:center">
-      <a class="brand" href="/" style="justify-content:center;margin:0 auto 28px">
-        <span class="brand-mark" aria-hidden="true">
-          <span class="brand-orb brand-orb-blue">✦</span>
-          <span class="brand-orb brand-orb-gold">◡</span>
-          <span class="brand-orb brand-orb-green">+</span>
-        </span>
-        <span class="brand-copy" style="text-align:left">
-          <strong>NEWTOWN SMILE DENTAL</strong>
-          <small>Minsoo Cho, DDS</small>
+<body style="background:#151512">
+  <main style="min-height:100svh;display:grid;grid-template-columns:1fr 1fr">
+    <section style="padding:70px;display:flex;flex-direction:column;justify-content:space-between;color:#f5f0e8">
+      <a href="/" style="display:flex;align-items:center;gap:14px;width:max-content">
+        <span class="brand-monogram">N</span>
+        <span class="brand-copy">
+          <strong style="color:#fff">NEWTOWN</strong>
+          <small style="color:#b9ae9f">SMILE DENTAL · MIN SOO CHO, DDS</small>
         </span>
       </a>
-      <div class="eyebrow">REQUEST RECEIVED</div>
-      <h1 style="font-family:Georgia,'Times New Roman',serif;color:#123b55;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.05;margin:0 0 18px">Thank you. We’ll be in touch.</h1>
-      <p style="color:#667984;font-size:1.05rem">Your request has been sent to the office for scheduling. This is not yet a confirmed appointment.</p>
-      <p style="color:#667984">For urgent scheduling, please call <a href="tel:+17183930100" style="color:#4b9fbd;font-weight:900">718-393-0100</a>.</p>
-      <a class="btn btn-primary" href="/" style="margin-top:18px">Return to website</a>
+      <div style="max-width:620px">
+        <span class="section-label light">REQUEST RECEIVED</span>
+        <h1 style="font-family:var(--serif);font-weight:400;font-size:clamp(4rem,7vw,7.2rem);line-height:.88;letter-spacing:-.05em;margin:20px 0 30px">Thank you.<br><em style="color:#d7c19d">We’ll be in touch.</em></h1>
+        <p style="max-width:540px;color:#aaa196">Your visit request has been sent to the office for scheduling. This is not yet a confirmed appointment.</p>
+        <p style="color:#aaa196">For urgent scheduling, call <a href="tel:+17183930100" style="color:#fff;border-bottom:1px solid #777">718-393-0100</a>.</p>
+        <a class="button button-gold" href="/" style="margin-top:24px;width:max-content">Return to website</a>
+      </div>
+      <small style="color:#746d64">Newtown Smile Dental · 86-01 Justice Ave · Elmhurst, NY 11373</small>
     </section>
+    <section style="min-height:100svh;background:url('https://static.wixstatic.com/media/84770f_5dfaf680dc134dc380b4a514deffc0a8.jpg/v1/fill/w_1200,h_1400,al_c,q_90/84770f_5dfaf680dc134dc380b4a514deffc0a8.jpg') center/cover no-repeat"></section>
   </main>
+  <style>
+    @media(max-width:760px){
+      main{grid-template-columns:1fr!important}
+      main>section:first-child{padding:34px 24px;min-height:100svh}
+      main>section:last-child{display:none}
+    }
+  </style>
 </body>
 </html>

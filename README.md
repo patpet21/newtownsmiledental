@@ -1,21 +1,30 @@
-# Newtown Smile Dental — Redesign Demo
+# Newtown Smile Dental — Luxury Redesign Demo
 
-A modern static redesign concept for **Newtown Smile Dental**, built to deploy directly on Netlify.
+A premium static redesign concept for **Newtown Smile Dental**, designed as a boutique dental experience and deployable directly on Netlify.
 
-## What is included
+## Design direction
+
+- Editorial luxury aesthetic: porcelain, ink and champagne-bronze palette
+- Full-screen cinematic hero using imagery from the current Wix site
+- Large editorial typography and high-end spacing
+- Service presentation inspired by premium hospitality / medical brands
+- “Newtown Concierge” patient-assistant concept
+- Three-step appointment request flow
+- Responsive mobile experience
+- Existing practice contact information, hours and services retained
+
+## Current functionality
 
 - Responsive single-page website
-- Current practice information, phone, email, address and office hours
-- Existing website imagery referenced from the current Wix CDN
-- Full services presentation
-- Insurance / billing information
-- Embedded map and directions
 - Netlify appointment-request form
 - Spam honeypot
-- Lightweight patient-facing Appointment Assistant
-- Thank-you confirmation page
-- SEO metadata and Dentist structured data
-- Security-oriented Netlify response headers
+- Appointment progress flow
+- Insurance carrier field
+- Human handoff CTA
+- Digital concierge for non-clinical questions
+- Map and directions
+- SEO metadata + Dentist structured data
+- Privacy guidance telling users not to send sensitive information through the general website form
 
 ## Deploy on Netlify
 
@@ -25,50 +34,55 @@ A modern static redesign concept for **Newtown Smile Dental**, built to deploy d
 4. Publish directory: `.`
 5. Deploy.
 
-Netlify should automatically detect the HTML form named `appointment-request`.
+Netlify should detect the form named `appointment-request`.
 
-After the first deployment, open **Forms** in Netlify and configure form submission notifications for the office email.
+After first deploy:
+- Open **Forms** in Netlify.
+- Configure a submission notification for the office.
+- Run a full test submission before showing the workflow as live.
 
-## Important production note — patient privacy
+## Automation concept for the client
 
-This demo intentionally asks only for basic contact and scheduling information. It tells patients **not** to send diagnoses, medical history, Social Security numbers, insurance member IDs or other sensitive health information.
+### Phase 1 — Patient Response Rescue
+1. Patient submits appointment request.
+2. Patient immediately receives acknowledgement.
+3. Office staff receives a new-request alert.
+4. If nobody marks the request handled within a defined SLA, send a reminder.
+5. Unresolved requests escalate.
+6. Office receives a daily list of unconfirmed requests.
 
-Before connecting an AI model, CRM, email automation, SMS platform, scheduling platform or database to information that may contain protected health information, the dental practice should confirm that the chosen vendors and workflow meet its HIPAA/privacy obligations and that required agreements (including BAAs where applicable) are in place.
-
-## Recommended automation roadmap
-
-### Phase 1 — appointment rescue
-- Website form → secure intake / approved destination
-- Immediate acknowledgement to the patient
-- Staff alert for every new request
-- If no staff action after a defined SLA, send a reminder
-- Escalate unresolved requests to a manager
-- Daily digest of unconfirmed appointment requests
-
-### Phase 2 — patient assistant
-The website assistant can answer non-clinical questions such as:
+### Phase 2 — Newtown Concierge
+The concierge should answer safe, non-clinical questions such as:
 - office hours
-- location and directions
+- location
 - services
 - new-patient process
 - general insurance workflow
-- appointment availability request
+- appointment request
 
-It should hand off to a staff member for:
-- clinical questions
-- treatment recommendations
-- detailed insurance or billing disputes
+It should hand off to a human for:
+- diagnosis or treatment advice
 - urgent symptoms
-- any request involving sensitive medical information
+- detailed insurance disputes
+- detailed patient history
+- sensitive personal information
 
-### Phase 3 — real booking
-After confirming what scheduling system the practice uses, connect available time slots and confirmation workflows. Do not promise a slot until the scheduling system confirms it.
+### Phase 3 — Real booking
+Once the practice confirms its scheduling software, connect live availability only if that system exposes a suitable integration. Until then, the site must say **Request a visit**, not imply that a time is confirmed.
+
+## Privacy note
+
+This demo intentionally collects only basic scheduling and contact information. Before routing protected patient information through email automation, AI, CRM, databases, SMS or other vendors, the practice should confirm its privacy/compliance requirements and vendor agreements.
 
 ## Assets
 
-The redesign currently references the original images hosted by the practice's Wix CDN. Before a final production migration away from Wix, download the source image files from the practice's Wix Media Manager (with client permission) and host them in this repository / Netlify instead of hotlinking.
+The current demo references image URLs from the practice's existing Wix CDN. For final production migration:
+- obtain client permission,
+- export/download source assets from Wix,
+- host them within the final production stack,
+- replace temporary hotlinks.
 
-## Current practice contact data
+## Practice contact data
 
 - Newtown Smile Dental
 - Minsoo Cho, DDS

@@ -80,6 +80,15 @@ document.querySelectorAll('.next-step').forEach(button => {
   });
 });
 
+document.querySelectorAll('.choice-card input[type="radio"]').forEach(input => {
+  input.addEventListener('change', () => {
+    if (currentStep !== 1) return;
+    window.setTimeout(() => {
+      if (validateStep(1)) showStep(2);
+    }, 220);
+  });
+});
+
 document.querySelectorAll('.prev-step').forEach(button => {
   button.addEventListener('click', () => showStep(currentStep - 1));
 });

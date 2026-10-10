@@ -804,3 +804,294 @@ body{
   .form-step h3{font-size:2.35rem}
   .service-row h3{font-size:1.34rem}
 }
+
+
+/* --- Return to intuitive dental luxury: crisp blue, white, soft aqua --- */
+:root{
+  --ink:#17313f;
+  --ink-soft:#365665;
+  --ivory:#f7fbfc;
+  --porcelain:#ffffff;
+  --paper:#ffffff;
+  --stone:#dce7ec;
+  --stone-dark:#8ca0a9;
+  --bronze:#62a9bf;
+  --bronze-light:#dff2f6;
+  --sage:#8fc5c2;
+  --line:rgba(23,49,63,.12);
+  --line-light:rgba(255,255,255,.24);
+  --shadow:0 20px 55px rgba(23,49,63,.10);
+}
+
+body{
+  background:#ffffff;
+  color:var(--ink);
+}
+
+.site-header.is-scrolled{
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid #dfe9ed;
+}
+
+.button-gold{
+  background:#2f88a7;
+  color:#fff;
+}
+.button-gold:hover{
+  background:#267792;
+}
+.button-dark{
+  background:#17313f;
+}
+.nav-book{
+  background:#ffffff;
+  color:#17313f;
+  border-color:rgba(255,255,255,.75);
+}
+.site-header.is-scrolled .nav-book{
+  background:#2f88a7;
+  color:#fff;
+  border-color:#2f88a7;
+}
+
+.hero-shade{
+  background:
+    linear-gradient(90deg,rgba(10,38,52,.82) 0%,rgba(10,45,64,.60) 44%,rgba(10,45,64,.18) 78%,rgba(10,45,64,.24) 100%),
+    linear-gradient(0deg,rgba(9,39,54,.36),transparent 55%);
+}
+.hero h1 em,
+.closing h2 em{
+  color:#bfe6ef;
+}
+.hero-kicker,
+.hero-side-note span,
+.closing-copy>span{
+  color:#ccecf3;
+}
+
+.marquee{
+  background:#eaf6f8;
+  color:#315864;
+  border-top:1px solid #d7eaee;
+}
+.marquee i{
+  color:#5ba5b7;
+}
+
+.experience{
+  background:#ffffff;
+}
+.editorial-title h2 em,
+.doctor-copy h2 em,
+.insurance h2 em,
+.visit h2 em,
+.appointment h2 em{
+  color:#2f88a7;
+}
+.editorial-copy>p:not(.lead),
+.doctor-copy>p:not(.lead),
+.insurance-copy{
+  color:#667984;
+}
+.experience-stat{
+  background:#e7f5f7;
+  color:#17313f;
+}
+.experience-stat p{
+  color:#56717b;
+}
+
+.services{
+  background:#f3f9fb;
+}
+.services-head h2 em{
+  color:#2f88a7;
+}
+.services-head>p,
+.service-row p{
+  color:#667984;
+}
+.service-list{
+  gap:16px;
+}
+.service-row{
+  background:#ffffff;
+  border:1px solid #dbe8ed;
+  border-radius:18px;
+  box-shadow:0 10px 28px rgba(23,49,63,.06);
+  padding:24px;
+}
+.service-row:hover{
+  background:#ffffff;
+  border-color:#9ccbd6;
+  box-shadow:0 18px 38px rgba(23,49,63,.10);
+  transform:translateY(-3px);
+  padding:24px;
+}
+.service-index{
+  background:#e8f5f7;
+  color:#2f88a7;
+}
+.service-arrow{
+  background:#e8f5f7;
+  color:#2f88a7;
+}
+
+.doctor{
+  background:#ffffff;
+}
+.doctor-principles{
+  border-top-color:#dbe7eb;
+}
+.doctor-principles>div{
+  border-bottom-color:#dbe7eb;
+}
+
+.insurance{
+  background:#f8fbfc;
+}
+.insurance-note{
+  background:#eaf6f8;
+  border:1px solid #d2e9ee;
+  color:#315864;
+}
+.insurance-note p{
+  color:#56717b;
+}
+
+.appointment{
+  background:#eef7f9;
+}
+.appointment-intro>p,
+.appointment-contact span{
+  color:#637982;
+}
+.appointment h2 em{
+  color:#2f88a7;
+}
+.concierge-form{
+  background:#ffffff;
+  border:1px solid #dce8ec;
+  box-shadow:0 18px 45px rgba(23,49,63,.08);
+  border-radius:22px;
+}
+.choice-card>span{
+  background:#ffffff;
+  border:1px solid #d8e7eb;
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(23,49,63,.05);
+}
+.choice-card>span:hover{
+  border-color:#7dbdca;
+  box-shadow:0 14px 28px rgba(23,49,63,.08);
+}
+.choice-card input:checked+span{
+  background:#e9f6f8;
+  border-color:#2f88a7;
+  color:#17313f;
+  box-shadow:0 12px 28px rgba(47,136,167,.12);
+}
+.choice-card input:checked+span b,
+.choice-card input:checked+span small{
+  color:#4d6e78;
+}
+
+.visit{
+  background:#ffffff;
+}
+.map-card{
+  background:rgba(255,255,255,.96);
+  border:1px solid #dce8ec;
+}
+.map-wrap iframe{
+  filter:grayscale(.55) contrast(.96) saturate(.8);
+}
+
+.site-footer{
+  background:#123d52;
+  color:#eaf5f8;
+}
+.footer-column>span,
+.footer-brand small,
+.footer-bottom{
+  color:#adc8d2;
+}
+.footer-column a,
+.footer-column p{
+  color:#d7e8ee;
+}
+
+.concierge-launch{
+  background:#ffffff;
+  color:#17313f;
+  border:1px solid #cfe0e5;
+  box-shadow:0 12px 30px rgba(23,49,63,.12);
+}
+.concierge-status{
+  background:#55b894;
+  box-shadow:0 0 0 5px rgba(85,184,148,.13);
+}
+.concierge-panel{
+  background:#ffffff;
+  border:1px solid #d7e6ea;
+  border-radius:22px;
+}
+.concierge-head{
+  background:#e9f6f8;
+  color:#17313f;
+}
+.concierge-head small{
+  color:#5d7c86;
+}
+.concierge-options{
+  gap:9px;
+}
+.concierge-options button{
+  background:#ffffff;
+  border:1px solid #d8e7eb;
+  border-radius:14px;
+  min-height:54px;
+  box-shadow:none;
+}
+.concierge-options button:hover{
+  background:#f5fbfc;
+  border-color:#88c2ce;
+  box-shadow:0 8px 18px rgba(23,49,63,.06);
+}
+.concierge-options button:last-child{
+  background:#eef8fa;
+}
+.concierge-contact-card{
+  background:#f7fbfc;
+  border:1px solid #d6e7eb;
+  border-radius:18px;
+  box-shadow:none;
+}
+.concierge-qr-block{
+  border:1px solid #d8e7eb;
+  box-shadow:none;
+}
+.concierge-response .concierge-call-btn{
+  background:#2f88a7;
+  color:#fff;
+}
+.concierge-response .concierge-mail-link{
+  color:#4e7480;
+}
+
+.section-label,
+.form-kicker{
+  color:#3f7f95;
+}
+.section-label.light{
+  color:#bfe6ef;
+}
+
+@media (max-width:820px){
+  .service-row{
+    padding:22px;
+  }
+  .service-row:hover{
+    padding:22px;
+  }
+}

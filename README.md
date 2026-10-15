@@ -1,3 +1,2 @@
-# New project
-
-Repository cleared and ready for new content.
+# Pietro Forestieri — portfolio
+React + TypeScript + Vite + Motion. `npm install` then `npm run dev`. Deploys with existing Netlify connection using `npm run build` and `dist`. Project data in `src/data/projects.ts`; replace illustrative visuals, photography and unverified external links as real assets become available. Netlify form must be validated with a live submission after deployment. No GitHub Actions configured.

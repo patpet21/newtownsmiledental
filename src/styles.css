@@ -24,3 +24,20 @@
 .ecosystem-disabled .ecosystem-cta{color:#95a6af}
 @media(max-width:1000px){.ecosystem-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.ecosystem-section{padding:75px 0 90px}.ecosystem-heading{display:block}.ecosystem-heading>.eyebrow{display:block;margin:0 0 22px}.ecosystem-heading h2{font-size:41px}.ecosystem-heading p{font-size:14px}.ecosystem-grid{grid-template-columns:1fr;gap:13px}.ecosystem-card{min-height:310px;padding:25px}.ecosystem-top{min-height:90px}}
+
+/* About: professional experience and education */
+.timeline-section{background:#11181d}
+.career-timeline{border-top:1px solid #39464e;margin-top:60px}
+.career-step{display:grid;grid-template-columns:1fr 2fr;gap:35px;position:relative;border-bottom:1px solid #39464e;padding:45px 0}
+.career-year{display:flex;align-items:start;gap:22px;color:#b8ff65;letter-spacing:1px;font-size:14px}
+.career-marker{display:block;width:11px;height:11px;flex:none;margin-top:4px;transform:rotate(45deg);background:#b8ff65;box-shadow:0 0 20px #b8ff6545}
+.career-description h3{font:600 clamp(25px,2.5vw,37px)/1.25 Manrope;letter-spacing:-.045em;margin:18px 0}
+.career-description p{font-size:15px;max-width:740px;color:#a9b5bd;line-height:1.9}
+.capabilities-section{background:#0d1116}
+.capabilities-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.capabilities-grid>div{padding:35px;background:#161e25;border:1px solid #33404b;min-height:250px}
+.capabilities-grid span{color:#b8ff65;font-size:12px;letter-spacing:2px}
+.capabilities-grid h3{font:600 25px/1.25 Manrope;letter-spacing:-.05em;margin:28px 0 18px}
+.capabilities-grid p{color:#a6b3bf;line-height:1.8;font-size:14px}
+.about-facts{row-gap:30px}
+@media(max-width:760px){.career-step{grid-template-columns:1fr;gap:18px;padding:32px 0}.career-description h3{font-size:27px}.capabilities-grid{grid-template-columns:1fr}.capabilities-grid>div{min-height:210px}.about-facts{grid-template-columns:1fr 1fr}}

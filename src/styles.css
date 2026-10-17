@@ -179,3 +179,82 @@ footer{background:#090b18}
  .pf-rail-controls button{width:41px;height:41px}
 }
 @media(prefers-reduced-motion:reduce){.art,.pf-sculpture i,.pf-rail-controls button{transition:none!important}}
+
+
+/* PF / RESPONSIVE SCALE CORRECTION — 2026-10-17
+   Reduce oversized hero, 3D object and portfolio rail without changing routes or project content. */
+@media (min-width: 761px) {
+ .hero {height:min(800px,100svh);min-height:650px}
+ .hero-inner {padding-top:clamp(120px,15vh,145px)}
+ .hero h1 {font-size:clamp(56px,6.2vw,96px);line-height:1.035;letter-spacing:-.075em;max-width:850px;margin:40px 0 27px}
+ .hero-bottom {max-width:980px;gap:24px}
+ .hero-bottom p {font-size:14px;line-height:1.7;max-width:365px}
+ .hero .btn {padding:13px 18px;min-height:50px;font-size:10px;gap:12px}
+ .hero .actions {gap:10px}
+ .hero .scroll {padding-bottom:26px}
+ .pf-universe {top:12%;right:-4%;width:65%;height:77%;opacity:.9}
+ .pf-universe-caption {right:11%;bottom:6%}
+}
+.pf-marquee {padding:16px 25px}
+.pf-marquee-inner {gap:27px;font-size:9px}
+.section.work {padding:88px 0 95px}
+.work .section-head {margin-bottom:32px}
+.work .section-head h2 {font-size:clamp(42px,4.8vw,74px);letter-spacing:-.07em}
+.work .section-head p {font-size:14px;line-height:1.7}
+.pf-rail-bar {padding:14px 0 19px}
+.pf-rail-controls button {width:40px;height:40px}
+.cards.pf-work-rail {gap:20px}
+.pf-work-rail .card {flex:0 0 clamp(280px,30vw,430px)}
+.pf-work-rail .card .art {aspect-ratio:1.38}
+.pf-work-rail .card-meta {margin:16px 0 11px;font-size:9px}
+.pf-work-rail .card-title h3 {font-size:clamp(21px,2.25vw,30px)}
+.pf-work-rail .card>p {font-size:13px;line-height:1.65}
+.pf-work-rail .art-center strong {font-size:clamp(22px,2.35vw,34px);letter-spacing:-1.6px}
+.pf-work-rail .art-center span {font-size:8px;letter-spacing:1.1px;margin-top:10px}
+@media (min-width:761px) and (max-width:1100px) {
+ .hero h1 {font-size:clamp(52px,6.4vw,76px);max-width:700px}
+ .pf-universe {width:78%;right:-15%;height:75%}
+ .hero-bottom {max-width:800px}
+ .pf-work-rail .card {flex-basis:clamp(280px,40vw,390px)}
+}
+@media (max-width:760px) {
+ .hero {height:auto;min-height:min(750px,100svh)}
+ .hero-inner {height:auto;min-height:min(750px,100svh);padding-top:125px;padding-bottom:20px}
+ .hero h1 {font-size:clamp(43px,10.5vw,65px);line-height:1.04;letter-spacing:-.075em;max-width:100%;margin:48px 0 22px}
+ .hero .eyebrow {font-size:9px;letter-spacing:1.2px}
+ .hero-bottom {gap:14px;align-items:flex-start}
+ .hero-bottom p {font-size:13px;line-height:1.55;max-width:340px;margin:0}
+ .hero .actions {display:flex;flex-wrap:wrap;gap:8px;width:100%}
+ .hero .btn {min-height:44px;padding:11px 12px;gap:9px;font-size:9px;letter-spacing:.5px}
+ .hero .scroll {padding-bottom:10px;margin-top:auto}
+ .pf-universe {top:12%;right:-48%;height:58%;width:118%;opacity:.68}
+ .hero:after {background:linear-gradient(180deg,#080a16b8 0%,#080a1670 43%,#080a16e9 85%)}
+ .pf-marquee {padding:14px 20px}
+ .pf-marquee-inner {gap:17px;font-size:8px;letter-spacing:1.3px}
+ .section.work {padding:64px 0 73px}
+ .work .section-head {margin-bottom:23px}
+ .work .section-head h2 {font-size:clamp(37px,9vw,51px)}
+ .work .section-head p {font-size:13px;line-height:1.6}
+ .pf-rail-bar {padding:12px 0 17px}
+ .pf-rail-bar>span {font-size:8px;letter-spacing:.8px;line-height:1.5}
+ .pf-rail-controls button {width:36px;height:36px;flex-shrink:0}
+ .cards.pf-work-rail {gap:13px}
+ .pf-work-rail .card {flex-basis:min(78vw,340px)}
+ .pf-work-rail .card .art {aspect-ratio:1.24}
+ .pf-work-rail .card-title h3 {font-size:21px}
+ .pf-work-rail .card-meta {font-size:9px;gap:8px}
+ .pf-work-rail .card>p {font-size:12px;line-height:1.6}
+ .pf-work-rail .art-center strong {font-size:clamp(21px,5.5vw,28px);letter-spacing:-1px}
+}
+@media (max-width:370px) {
+ .hero h1 {font-size:41px}
+ .hero-inner {padding-top:112px}
+ .hero .actions {gap:7px}
+ .hero .btn {font-size:8px;padding:10px 11px}
+ .pf-rail-bar>span {max-width:158px}
+}
+@media (min-width:761px) and (max-height:620px) {
+ .hero {height:auto;min-height:610px}
+ .hero-inner {min-height:610px;padding-top:108px}
+ .hero h1 {margin-top:26px;margin-bottom:19px}
+}

@@ -258,3 +258,119 @@ footer{background:#090b18}
  .hero-inner {min-height:610px;padding-top:108px}
  .hero h1 {margin-top:26px;margin-bottom:19px}
 }
+
+
+/* PF / INTERACTIVE PORTFOLIO V3 — real image assets, compact layout, cursor-driven 3D */
+.pf-interactive-card{--pf-rx:0deg;--pf-ry:0deg;--pf-mx:50%;--pf-my:50%;min-width:0;will-change:auto}
+.pf-project-link{display:block;position:relative;perspective:1200px;border-radius:16px;outline-offset:5px}
+.pf-project-visual{position:relative;aspect-ratio:1.13;isolation:isolate;overflow:hidden;border-radius:16px;border:1px solid #bfcaff37;background:radial-gradient(circle at 60% 30%,color-mix(in srgb,var(--color) 25%,#161d34),#121525 65%);transform:perspective(1200px) rotateX(var(--pf-rx)) rotateY(var(--pf-ry));transition:transform .18s ease,border-color .25s,box-shadow .3s;box-shadow:0 17px 27px #03051366}
+.pf-project-visual:before{content:"";position:absolute;z-index:2;inset:0;pointer-events:none;opacity:0;transition:opacity .25s;background:radial-gradient(350px circle at var(--pf-mx) var(--pf-my),#d4eaff3d,transparent 67%)}
+.pf-interactive-card:hover .pf-project-visual:before{opacity:1}
+.pf-interactive-card:hover .pf-project-visual,.pf-project-link:focus-visible .pf-project-visual{border-color:color-mix(in srgb,var(--color) 80%,#ffffff);box-shadow:0 30px 48px #01030b9a,0 0 45px color-mix(in srgb,var(--color) 14%,transparent)}
+.pf-project-glow{position:absolute;inset:-22%;z-index:0;background:radial-gradient(ellipse at 47% 38%,color-mix(in srgb,var(--color) 28%,transparent),transparent 67%);filter:blur(20px)}
+.pf-project-image-frame{position:absolute;inset:12px 12px 56px;z-index:1;overflow:hidden;border-radius:10px;border:1px solid #ffffff30;box-shadow:0 12px 22px #0009;transform:translateY(0) scale(1);transition:transform .45s cubic-bezier(.2,.65,.2,1)}
+.pf-project-image-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s ease}
+.pf-interactive-card:hover .pf-project-image-frame{transform:translateY(-7px) scale(1.015)}
+.pf-interactive-card:hover .pf-project-image-frame img{transform:scale(1.055)}
+.pf-project-glass{position:absolute;z-index:3;bottom:12px;left:12px;right:12px;min-height:87px;border-radius:12px;padding:13px 16px;background:#071023bb;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid #ffffff26;box-shadow:0 8px 27px #03051370;display:flex;flex-direction:column;justify-content:center;gap:5px;transition:transform .35s,border-color .35s}
+.pf-project-glass>span:first-child{font-size:9px;letter-spacing:1.3px;font-weight:800;color:color-mix(in srgb,var(--color) 70%,#ffffff)}
+.pf-project-glass strong{font:800 clamp(18px,2vw,25px)/1.1 Manrope,Arial,sans-serif;letter-spacing:-.8px;color:#f7fbff;max-width:88%;text-wrap:balance}
+.pf-project-visit{position:absolute;right:15px;bottom:15px;display:flex;align-items:center;gap:5px;color:#e6efff;font-size:9px;letter-spacing:.6px;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s}
+.pf-interactive-card:hover .pf-project-visit,.pf-project-link:focus-visible .pf-project-visit{opacity:1;transform:translateY(0)}
+.pf-project-corner{position:absolute;right:24px;top:24px;z-index:3;width:34px;height:34px;display:grid;place-items:center;background:#050a19ad;border:1px solid #ffffff80;border-radius:50%;color:#ffffff;transition:transform .25s}
+.pf-interactive-card:hover .pf-project-corner{transform:rotate(45deg);background:color-mix(in srgb,var(--color) 70%,#111625)}
+.pf-case-art{aspect-ratio:1.8}
+.pf-case-art>img{display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.pf-case-art:after{display:none}
+.pf-case-art:before{z-index:1;background:linear-gradient(180deg,#02051550 0%,transparent 35%,#040816cb 100%)}
+.pf-case-art .art-center{align-items:flex-start;padding:0 6% 9%;justify-content:flex-end}
+.pf-case-art .art-center strong{font-size:clamp(30px,3.6vw,58px);max-width:75%}
+.pf-case-art .art-center span{color:#d9e6fa;font-size:10px}
+.featured .pf-case-art{aspect-ratio:1.15}
+.featured .pf-case-art .art-center strong{font-size:clamp(22px,3vw,38px)}
+.cards.pf-work-rail{gap:16px;padding:7px 4px 14px;scroll-padding-inline:5px}
+.pf-work-rail .card{flex:0 0 clamp(262px,25vw,342px)}
+.pf-work-rail .card .art{aspect-ratio:auto}
+.pf-work-rail .card-meta{margin:15px 0 10px;gap:12px;font-size:9px}
+.pf-work-rail .card-title h3{font-size:clamp(21px,2vw,27px);line-height:1.15}
+.pf-work-rail .card>p{font-size:12px;line-height:1.65;margin:10px 0 0;color:#afb9d1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pf-rail-bar{padding:13px 0 15px}
+.pf-rail-controls button{width:39px;height:39px}
+.pf-progress-row{display:grid;grid-template-columns:max-content 1fr 40px;gap:19px;align-items:center;padding:17px 0 0}
+.pf-progress-row span{font-size:9px;font-weight:800;letter-spacing:1.2px;color:#91a3c5}
+.pf-progress-row span:last-child{text-align:right;color:var(--pf-blue)}
+.pf-progress-track{height:3px;background:#b0bad533;border-radius:10px;overflow:hidden}
+.pf-progress-fill{height:100%;background:linear-gradient(90deg,#90e4ff,#bf9eff,#fd9ccc);transition:width .12s linear}
+.section{padding-top:78px;padding-bottom:80px}
+.section-head{margin-bottom:38px}
+.section-head h2,.featured h2,.about-text h2{font-size:clamp(37px,4.1vw,66px)}
+.section-head p{font-size:14px;line-height:1.65}
+.section.work{padding:65px 0 70px}
+.work .section-head{margin-bottom:27px}
+.work .section-head h2{font-size:clamp(40px,4.65vw,70px)}
+.underlink{margin-top:27px}
+.service-row{padding:20px 0}
+.service-row h3{margin:9px 0}
+.steps{margin:48px 0 32px}
+.featured h2{margin:23px 0}
+.featured p{margin-bottom:25px}
+.ecosystem-section{padding:76px 0 82px}
+.ecosystem-heading{margin-bottom:33px}
+.ecosystem-heading h2{font-size:clamp(36px,4.2vw,66px)}
+.ecosystem-card{min-height:300px;padding:24px}
+.ecosystem-top{min-height:81px}
+.showcase-section{padding:75px 0 80px}
+.showcase-intro{margin-bottom:38px}
+.showcase-intro h2{font-size:clamp(37px,4.2vw,65px)}
+.showcase-grid{gap:17px}
+.showcase-copy{padding:23px 25px 27px}
+.page-head{padding-top:158px;padding-bottom:65px}
+.case-head{padding-top:142px}
+.case-head h1{margin:28px 0 14px}
+.case-head>p{margin-bottom:34px}
+.case-row{padding:42px 0}
+.facts{padding:27px 0 48px}
+.career-step{padding:33px 0}
+@media (min-width:1100px){
+ .pf-work-rail .card{flex-basis:clamp(282px,24vw,342px)}
+ .section.work{padding:66px 0 69px}
+}
+@media (max-width:760px){
+ .section{padding:55px 0 58px}
+ .section-head{margin-bottom:27px}
+ .section-head h2,.featured h2,.about-text h2{font-size:clamp(34px,8.5vw,48px)}
+ .section.work{padding:51px 0 56px}
+ .work .section-head{margin-bottom:20px}
+ .work .section-head h2{font-size:clamp(35px,8.5vw,48px)}
+ .pf-work-rail .card{flex:0 0 min(76vw,309px)}
+ .pf-work-rail .card .pf-project-visual{aspect-ratio:1.07}
+ .pf-work-rail .card-title h3{font-size:20px}
+ .pf-project-glass{min-height:76px;padding:10px 13px}
+ .pf-project-glass strong{font-size:19px}
+ .pf-project-visit{opacity:1;transform:none;font-size:0}
+ .pf-project-visit svg{width:15px;height:15px}
+ .pf-project-image-frame{inset:10px 10px 53px}
+ .pf-progress-row{grid-template-columns:max-content 1fr 34px;gap:9px;padding-top:14px}
+ .pf-progress-row span{font-size:8px;letter-spacing:.7px}
+ .ecosystem-section,.showcase-section{padding:52px 0 58px}
+ .ecosystem-heading,.showcase-intro{margin-bottom:27px}
+ .ecosystem-heading h2,.showcase-intro h2{font-size:clamp(34px,8.5vw,48px)}
+ .ecosystem-card{min-height:260px}
+ .service-row{padding:16px 0}
+ .steps{margin:37px 0 27px}
+ .page-head{padding-top:128px;padding-bottom:47px}
+ .case-head{padding-top:124px}
+ .case-head .pf-case-art{aspect-ratio:1.3}
+ .case-row{padding:31px 0}
+ .facts{padding:22px 0 31px}
+ .featured .pf-case-art{aspect-ratio:1.25}
+ .pf-case-art .art-center strong{font-size:27px;max-width:92%}
+ .pf-interactive-card .pf-project-visual{transform:none}
+ .pf-project-visit{right:12px;bottom:11px}
+}
+@media (max-width:390px){.pf-work-rail .card{flex-basis:min(80vw,295px)}}
+@media (prefers-reduced-motion:reduce){
+ .pf-project-visual,.pf-project-image-frame,.pf-project-image-frame img,.pf-project-glass,.pf-progress-fill,.pf-project-corner{transition:none!important}
+ .pf-interactive-card .pf-project-visual{transform:none!important}
+ .pf-interactive-card:hover .pf-project-image-frame,.pf-interactive-card:hover .pf-project-image-frame img{transform:none!important}
+}

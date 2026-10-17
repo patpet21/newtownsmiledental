@@ -4,14 +4,69 @@ const nav=[['/','Home'],['/about','About'],['/projects','Projects'],['/services'
 function Header(){const[open,setOpen]=useState(false),loc=useLocation();useEffect(()=>{setOpen(false);window.scrollTo(0,0)},[loc.pathname]);return <header className="header"><Link className="logo" to="/"><b>pf<span>.</span></b><small>PIETRO<br/>FORESTIERI</small></Link><nav className={open?'open':''}>{nav.map(([url,label])=><NavLink key={url} end={url==='/'} to={url}>{label}</NavLink>)}</nav><Link className="header-contact" to="/contact">LET'S TALK <ArrowUpRight size={16}/></Link><button className="menu" aria-label="Toggle menu" aria-expanded={open} onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button></header>}
 function Foot(){return <footer><div className="wrap"><small className="eyebrow">THE NEXT STEP</small><h2>Good ideas deserve<br/><em>great execution.</em></h2><Link className="footer-arrow" to="/contact"><ArrowUpRight size={37}/></Link><div className="footer-bottom"><span>© {new Date().getFullYear()} PIETRO FORESTIERI</span><span>NEW YORK CITY · INDEPENDENT PROFESSIONAL</span><a href="https://github.com/patpet21" target="_blank" rel="noreferrer">GITHUB ↗</a></div></div></footer>}
 function Heading({label,title,description}:{label:string;title:string;description?:string}){return <motion.div {...appear} className="section-head"><small className="eyebrow"><i/> {label}</small><div><h2>{title}</h2>{description&&<p>{description}</p>}</div></motion.div>}
-function Artwork({p}:{p:Project}){return <div className="art" data-project={p.id} style={{'--color':p.accent} as React.CSSProperties}><div className="art-ring ring1"/><div className="art-ring ring2"/><div className="art-ring ring3"/><div className="pf-sculpture" aria-hidden="true"><i/><i/><i/></div><div className="art-label">{p.category.toUpperCase()} <span>2026 / PF</span></div><div className="art-center"><strong>{p.title.toUpperCase()}</strong><span>STRATEGY / SYSTEMS / EXECUTION</span></div><div className="art-foot">SELECTED WORK <ArrowUpRight size={16}/></div></div>}
-function Card({p,i}:{p:Project;i:number}){return <motion.article {...appear} className="card"><Link to={'/projects/'+p.id} className="art-link"><Artwork p={p}/><span className="hover-arrow"><ArrowUpRight/></span></Link><div className="card-meta"><span>{String(i+1).padStart(2,'0')} / {p.category}</span><span>{p.status}</span></div><Link to={'/projects/'+p.id} className="card-title"><h3>{p.title}</h3><ArrowUpRight/></Link><p>{p.summary}</p></motion.article>}
+function Artwork({p}:{p:Project}){
+ return <div className="art pf-case-art" data-project={p.id} style={{'--color':p.accent} as React.CSSProperties}>
+  <img src={'/project-covers/'+p.id+'.svg'} alt={'Illustrated visual concept for '+p.title} loading="lazy"/>
+  <div className="art-label">{p.category.toUpperCase()} <span>2026 / PF</span></div>
+  <div className="art-center"><strong>{p.title.toUpperCase()}</strong><span>SELECTED WORK / CONCEPT VISUAL</span></div>
+  <div className="art-foot">EXPLORE CASE STUDY <ArrowUpRight size={16}/></div>
+ </div>;
+}
+function ProjectVisual({p}:{p:Project}){
+ return <div className="pf-project-visual" data-project={p.id} style={{'--color':p.accent} as React.CSSProperties}>
+  <div className="pf-project-glow"/>
+  <div className="pf-project-image-frame"><img src={'/project-covers/'+p.id+'.svg'} alt={'Illustrative visual for '+p.title} loading="lazy" decoding="async"/></div>
+  <div className="pf-project-glass"><span>CASE STUDY / {p.year}</span><strong>{p.title}</strong><span className="pf-project-visit">EXPLORE PROJECT <ArrowUpRight size={14}/></span></div>
+  <div className="pf-project-corner" aria-hidden="true">↗</div>
+ </div>;
+}
+function Card({p,i}:{p:Project;i:number}){
+ const move=(event:React.PointerEvent<HTMLElement>)=>{
+  if(event.pointerType!=='mouse'||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const el=event.currentTarget,rect=el.getBoundingClientRect();
+  const x=(event.clientX-rect.left)/rect.width,y=(event.clientY-rect.top)/rect.height;
+  el.style.setProperty('--pf-rx',((.5-y)*9).toFixed(2)+'deg');
+  el.style.setProperty('--pf-ry',((x-.5)*11).toFixed(2)+'deg');
+  el.style.setProperty('--pf-mx',(x*100).toFixed(1)+'%');
+  el.style.setProperty('--pf-my',(y*100).toFixed(1)+'%');
+ };
+ const leave=(event:React.PointerEvent<HTMLElement>)=>{
+  event.currentTarget.style.setProperty('--pf-rx','0deg');
+  event.currentTarget.style.setProperty('--pf-ry','0deg');
+ };
+ return <motion.article {...appear} className="card pf-interactive-card" onPointerMove={move} onPointerLeave={leave}>
+  <Link to={'/projects/'+p.id} className="pf-project-link"><ProjectVisual p={p}/></Link>
+  <div className="card-meta"><span>{String(i+1).padStart(2,'0')} / {p.category}</span><span>{p.status}</span></div>
+  <Link to={'/projects/'+p.id} className="card-title"><h3>{p.title}</h3><ArrowUpRight size={20}/></Link>
+  <p>{p.summary}</p>
+ </motion.article>;
+}
 function WorkRail(){
  const ref=useRef<HTMLDivElement|null>(null);
+ const [progress,setProgress]=useState(0);
  const order=['privacygate','privatestone','propertydex','propertydex-framework','websites','retail-it','lead-rescue','e-learning'];
  const selected=order.map(id=>projects.find(p=>p.id===id)).filter((p):p is Project=>Boolean(p));
- const move=(direction:number)=>ref.current?.scrollBy({left:direction*ref.current.clientWidth*.75,behavior:'smooth'});
- return <div className="pf-rail"><div className="pf-rail-bar"><span>{String(selected.length).padStart(2,'0')} PROJECTS — SCROLL / SWIPE TO EXPLORE</span><div className="pf-rail-controls"><button aria-label="Previous projects" onClick={()=>move(-1)}><ChevronLeft size={21}/></button><button aria-label="Next projects" onClick={()=>move(1)}><ChevronRight size={21}/></button></div></div><div className="cards pf-work-rail" ref={ref}>{selected.map((p,i)=><Card key={p.id} p={p} i={i}/>)}</div></div>;
+ useEffect(()=>{
+  const track=ref.current;if(!track)return;
+  const update=()=>{
+   const max=track.scrollWidth-track.clientWidth;
+   setProgress(max>0?Math.round(track.scrollLeft/max*100):100);
+  };
+  update();track.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  return()=>{track.removeEventListener('scroll',update);window.removeEventListener('resize',update);};
+ },[]);
+ const move=(direction:number)=>ref.current?.scrollBy({left:direction*ref.current.clientWidth*.78,behavior:'smooth'});
+ return <div className="pf-rail">
+  <div className="pf-rail-bar"><span>{String(selected.length).padStart(2,'0')} PROJECTS — SWIPE, SCROLL OR EXPLORE</span>
+   <div className="pf-rail-controls">
+    <button aria-label="Previous projects" onClick={()=>move(-1)}><ChevronLeft size={20}/></button>
+    <button aria-label="Next projects" onClick={()=>move(1)}><ChevronRight size={20}/></button>
+   </div>
+  </div>
+  <div className="cards pf-work-rail" role="region" aria-label="Selected project gallery" tabIndex={0} ref={ref}>{selected.map((p,i)=><Card key={p.id} p={p} i={i}/>)}</div>
+  <div className="pf-progress-row"><span>DRAG TO EXPLORE</span><div className="pf-progress-track" role="progressbar" aria-label="Gallery scroll progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress}><div className="pf-progress-fill" style={{width:progress+'%'}}/></div><span>{Math.round(progress)}%</span></div>
+ </div>;
 }
 
 function Home(){return <><section className="hero"><ImmersiveCanvas/><div className="wrap hero-inner"><small className="eyebrow"><i/> DIGITAL PRODUCTS · PROJECTS · SYSTEMS <span className="hero-ny">NEW YORK · WORLDWIDE</span></small><motion.h1 initial={{opacity:0,y:44}} animate={{opacity:1,y:0}} transition={{duration:.9}}>I BUILD<br/><span className="outlined">WHAT&apos;S</span><br/><span className="hero-gradient">NEXT.</span></motion.h1><div className="hero-bottom"><p>From privacy-first AI and real estate technology to automation and project delivery. Independent thinking. Tangible work.</p><div className="actions"><Link className="btn primary" to="/projects">ENTER THE PORTFOLIO <ArrowUpRight size={17}/></Link><Link className="btn secondary" to="/contact">LET'S CONNECT <ArrowRight size={17}/></Link></div></div><span className="scroll"><ArrowDown size={14}/> SCROLL TO EXPLORE</span></div></section><div className="pf-marquee"><div className="pf-marquee-inner"><span>PRODUCT DESIGN</span><b>✳</b><span>PRIVACY & AI</span><b>✳</b><span>REAL ESTATE TECH</span><b>✳</b><span>PROJECT DELIVERY</span><b>✳</b><span>CREATIVE DEVELOPMENT</span></div></div><section className="section work"><div className="wrap"><Heading label="01 / SELECTED WORK" title="Explore the unusual." description="Real products, living experiments and operational projects. Scroll to discover what is behind each one."/><WorkRail/><Link className="underlink" to="/projects">VIEW ALL PROJECTS <ArrowUpRight/></Link></div></section><section className="section services"><div className="wrap"><Heading label="02 / WHAT I DO" title={'Less complexity.\nMore clarity.'} description="Practical support at the intersection of projects, processes, and technology."/><div className="service-rows">{[['01','Project & Operations Coordination','Planning, stakeholder communication, and structured execution.'],['02','Business Process Improvement','Understanding workflows and identifying opportunities to work smarter.'],['03','Digital & AI-Enabled Solutions','Useful tools, thoughtful automations, and practical digital solutions.']].map(([n,t,d])=><Link className="service-row" to="/services" key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p><ArrowUpRight/></Link>)}</div></div></section><section className="section approach"><div className="wrap"><Heading label="03 / THE APPROACH" title={'A clearer path from\nquestion to outcome.'}/><div className="steps">{['Discover','Analyze','Design','Coordinate','Deliver','Improve'].map((x,i)=><div key={x}><small>0{i+1}</small><i/><strong>{x}</strong></div>)}</div><p className="muted">Every project starts by understanding the real problem — before deciding what to build.</p></div></section><section className="section featured"><div className="wrap featured-grid"><div><small className="eyebrow"><i/> 04 / FEATURED INNOVATION</small><h2>Privacy first.<br/><em>By design.</em></h2><p>PrivacyGate explores a more considered way to work with AI: identify sensitive details, protect them locally, and remain in control of what gets shared.</p><Link className="btn primary" to="/projects/privacygate">EXPLORE PRIVACYGATE <ArrowUpRight/></Link></div><Link to="/projects/privacygate"><Artwork p={projects[0]}/></Link></div></section></>}
